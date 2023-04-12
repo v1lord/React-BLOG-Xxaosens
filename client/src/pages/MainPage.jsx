@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Postitem } from '../components/Postitem';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts } from '../redux/features/post/postSlice';
-
+import {PopularPosts} from "../components/PopularPosts";
 
 
 export const MainPage = () => {
@@ -11,7 +11,7 @@ export const MainPage = () => {
     const { posts, popularPosts } = useSelector((state) => state.post)
 
 
-////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     // useEffect(() => {
     //     dispatch(getAllPosts())
     // }, [])
@@ -19,7 +19,7 @@ export const MainPage = () => {
     useEffect(() => {
         dispatch(getAllPosts())
     }, [dispatch])
-////////////////////////////////////////////////
+    ////////////////////////////////////////////////
 
     if (!posts.length) {
         return (
@@ -47,7 +47,7 @@ export const MainPage = () => {
                     </div>
 
                     {popularPosts?.map((post, idx) => (
-                        <popularPosts key={idx} post={post} />
+                        <PopularPosts key={idx} post={post} />
                     ))}
                 </div>
             </div>
