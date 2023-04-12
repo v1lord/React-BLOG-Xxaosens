@@ -1,8 +1,9 @@
 import { Router } from 'express';
+import { checkAuth } from "../utils/checkAuth.js";
+import { createComment } from '../controllers/comments.js';
+
 
 const router = new Router()
-
-import { checkAuth } from "../utils/checkAuth.js";
 
 
 // Create Comment
@@ -13,5 +14,5 @@ router.post("/:id", checkAuth, createComment)
 
 
 
-// export default router
+export default router
 // commentRoute
