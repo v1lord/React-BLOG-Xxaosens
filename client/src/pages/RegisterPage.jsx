@@ -11,6 +11,7 @@ export const RegisterPage = () => {
     const [password, setPassword] = useState("")
     const { status } = useSelector((state) => state.auth)
     const isAuth = useSelector(checkIsAuth)
+    
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
@@ -28,10 +29,27 @@ export const RegisterPage = () => {
             dispatch(registerUser({ username, password }))
             setPassword("")
             setUsername("")
+            // window.location.reload("/");
         } catch (error) {
             console.log(error)
         }
     }
+
+
+    // const handleSubmit = () => {
+    //     try {
+    //         dispatch(loginUser({ username, password }))
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
+
+
+
+
+
+
+
 
 
 
@@ -66,6 +84,7 @@ export const RegisterPage = () => {
                 <button
                     type='submit'
                     onClick={handleSubmit}
+                    to={"/"}
                     className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm py-2 px-4'
                 >
                     Подтвердить
